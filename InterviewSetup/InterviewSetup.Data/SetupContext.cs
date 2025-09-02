@@ -1,14 +1,9 @@
 ﻿using InterviewSetup.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace InterviewSetup.Data
-{
-    public class SetupContext : DbContext
-    {
-        public DbSet<User> Users { get; set; }
+namespace InterviewSetup.Data;
 
-        public SetupContext(DbContextOptions<SetupContext> options) : base(options)
-        {
-        }
-    }
+public class SetupContext(DbContextOptions<SetupContext> options) : DbContext(options)
+{
+    public DbSet<User> Users { get; set; }
 }

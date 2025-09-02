@@ -1,9 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <TargetFrameworks>net7.0;net9.0</TargetFrameworks>
+
+    <LangVersion>13</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

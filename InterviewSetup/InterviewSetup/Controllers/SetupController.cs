@@ -4,32 +4,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace InterviewSetup.Controllers
+namespace InterviewSetup.Controllers;
+
+[Route("api/setup")]
+public class SetupController(VehicleService vehicleService, SetupContext setupContext) : Controller
 {
-    [Route("api/setup")]
-    public class SetupController : Controller
+    [HttpGet("vehicles")]
+    public async Task<IActionResult> GetVehicles()
     {
-        private readonly VehicleService _vehicleService;
-        private readonly SetupContext _setupContext;
+        var vehicles = await vehicleService.GetWMIsForManufacturer("bmw");
+        return Ok(vehicles);
+    }
 
-        public SetupController(VehicleService vehicleService, SetupContext setupContext)
-        {
-            _vehicleService = vehicleService;
-            _setupContext = setupContext;
-        }
-
-        [HttpGet("vehicles")]
-        public async Task<IActionResult> GetVehicles()
-        {
-            var vehicles = await _vehicleService.GetWMIsForManufacturer("bmw");
-            return Ok(vehicles);
-        }
-
-        [HttpGet("users")]
-        public async Task<IActionResult> GetUsers()
-        {
-            var users = await _setupContext.Users.ToListAsync();
-            return Ok(users);
-        }
+    [HttpGet("users")]
+    public async Task<IActionResult> GetUsers()
+    {
+        var users = await setupContext.Users.ToListAsync();
+        return Ok(users);
     }
 }

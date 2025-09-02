@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace InterviewSetup.Model
-{
-    public class ApiResponse
-    {
-        public int Count { get; set; }
-        public List<Wmi> Results { get; set; }
-    }
-}
+namespace InterviewSetup.Model;
+
+public record ApiResponse(int Count, List<Wmi> Results);
