@@ -16,14 +16,14 @@ public class SetupControllerTests : IntegrationTest
     public async Task GetVehicles_Successfully()
     {
         var response = await TestClient.GetAsync("api/setup/vehicles");
-
-        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-
+        
+        Assert.That(HttpStatusCode.OK, Is.EqualTo(response.StatusCode));
+        
         response.EnsureSuccessStatusCode();
         var content = await response.Content.ReadAsStringAsync();
         var vehicles = JsonConvert.DeserializeObject<List<Wmi>>(content);
 
-        Assert.AreEqual(5, vehicles.Count);
+        Assert.That(vehicles.Count, Is.EqualTo(5));
     }
 
     [Test]
@@ -31,12 +31,12 @@ public class SetupControllerTests : IntegrationTest
     {
         var response = await TestClient.GetAsync("api/setup/users");
 
-        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-
+        Assert.That(HttpStatusCode.OK, Is.EqualTo(response.StatusCode));
+        
         response.EnsureSuccessStatusCode();
         var content = await response.Content.ReadAsStringAsync();
         var users = JsonConvert.DeserializeObject<List<User>>(content);
 
-        Assert.AreEqual(4, users.Count);
+        Assert.That(users.Count, Is.EqualTo(4));
     }
 }

@@ -24,6 +24,7 @@ public class IntegrationTest
                 services.AddDbContext<SetupContext>(options => options.UseInMemoryDatabase(databaseName: "SetupDb"));
             });
         });
+        
         TestClient = appFactory.CreateClient();
 
         _serviceProvider = appFactory.Services;
