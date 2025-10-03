@@ -4,10 +4,12 @@ This is a setup solution that candidates can make use of to enusre that their de
 
 ## Steps to confirm if your enviornment is ready for the challange
 
-- Do you have the correct SDK version?
-- Does your solution build?
-- Do all the tests under `InterviewSetup.IntegrationTests` run successfully?
-- Are you able to successfully debug the tests?
+- [ ] Do you have the correct SDK version?
+- [ ] Does your solution build?
+- [ ] Do all the tests under `InterviewSetup.IntegrationTests` run successfully?
+- [ ] Are you able to successfully debug the tests?
+
+It is advised to ensure the project is working in your IDE of choice, however you can run `check-setup.sh` to confirm if your development environment is correct. (You can run this file in a Git Bash console if you are on windows)
 
 _NOTE:_ There are no challanges to solve in this repository. The solution and tests should all build and pass without any code changes. This is just to confirm if your development enviornment is setup correctly.
 
